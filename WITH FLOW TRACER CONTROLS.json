@@ -1,0 +1,213 @@
+neural-vr-sincerity-matrix-with-flow-tracer-control-interface
+
+# -*- coding: utf-8 -*-
+"""
+================================================================================
+         DUAL-VECTOR NEURAL-VR SINCERITY MATRIX WITH FLOW TRACER CONTROLS       
+================================================================================
+Core Engine Codebase for Remote Autotelic Immersion and Allostatic Validation
+Developed by: The Commander & The Scientists Analytical Team
+System Capacity Threshold: 94.4% Optimal Saturated Capacity
+"""
+
+import time
+import sys
+
+def calculate_flow_state_metrics(mantra_count, core_temp_celsius, audio_track_vibe, 
+                                 audio_baseline_tremor, audio_response_tremor, 
+                                 hrv_baseline, hrv_response, bpm_current):
+    """
+    Core Fusion Engine: Processes dual-vector polygraph metrics alongside 
+    real-time biological and environmental Flow Triggers to calculate the 
+    Cognitive Friction & Sincerity Index (CFSI) and the Flow Saturation Level.
+    """
+    # -------------------------------------------------------------------------
+    # 1. DUAL-VECTOR POLYGRAPH CORE & CAFFEINE OVERRIDE FAIL-SAFE
+    # -------------------------------------------------------------------------
+    caffeine_override_active = bpm_current > 100
+    if caffeine_override_active:
+        acoustic_weight = 0.70
+        cardiac_weight = 0.20
+    else:
+        acoustic_weight = 0.45
+        cardiac_weight = 0.45
+
+    # Acoustic Delta (Vagus Nerve Micro-Tremor Loss)
+    tremor_loss = audio_baseline_tremor - audio_response_tremor
+    acoustic_score = max(0.0, min(1.0, 1.0 - (tremor_loss * 2.5)))
+    
+    # Advanced Heart Rate Variability Logic
+    if hrv_baseline <= 0:
+        hrv_baseline = 50  # Fault-tolerant baseline default
+    hrv_drop = hrv_baseline - hrv_response
+    cardiac_score = max(0.0, min(1.0, 1.0 - (hrv_drop / hrv_baseline)))
+    
+    # Promethean Fusion Formula for CFSI (Weighted Inputs + 10% Constant Anchor)
+    cfsi_index = (acoustic_score * acoustic_weight) + (cardiac_score * cardiac_weight) + 0.10
+    cfsi_score = round(cfsi_index * 100, 1)
+
+    # -------------------------------------------------------------------------
+    # 2. REAL-TIME FLOW TRIGGER VECTOR ANALYTICS
+    # -------------------------------------------------------------------------
+    # Trigger 01: Vagal Reset Pacing (Target: 105 structural bead repetitions)
+    vagal_pacing_trigger = min(100.0, (mantra_count / 105.0) * 100.0)
+    
+    # Trigger 02: Hydro-Shock Thermal Circuit Breaker (Target Core Shock < 36.0 C)
+    if core_temp_celsius < 36.0:
+        # Shock activation translates drops under normal skin baseline to a high performance value
+        hydro_shock_trigger = min(100.0, max(0.0, (37.0 - core_temp_celsius) * 50.0))
+    else:
+        hydro_shock_trigger = 0.0
+
+    # Trigger 03: Acoustic Rhythm Synchronization (Target: High-energy rock/metal vibe matrix)
+    if audio_track_vibe in ["Limp Bizkit", "RAF Camora", "Green Day", "T.Q."]:
+        acoustic_sync_trigger = 100.0
+    else:
+        acoustic_sync_trigger = 30.0
+
+    # -------------------------------------------------------------------------
+    # 3. REAL-TIME COGNITIVE SATURATION INDEX (FLOW STATE LEVEL)
+    # -------------------------------------------------------------------------
+    # Systemic distribution: 40% Vagal, 40% Hydro-Shock, 20% Soundscape Rhythm
+    flow_saturation = (vagal_pacing_trigger * 0.40) + (hydro_shock_trigger * 0.40) + (acoustic_sync_trigger * 0.20)
+    
+    # Overriding Cognitive Prison Protection: 
+    # If polygraph indices detect high cognitive strain, internal harmony drops.
+    if cfsi_score < 40.0:
+        flow_saturation = max(0.0, flow_saturation - 40.0)
+
+    # Lock and secure maximum cap ceiling matching narrative metrics
+    if flow_saturation > 94.4:
+        flow_saturation = 94.4
+
+    return (cfsi_score, round(flow_saturation, 1), caffeine_override_active, 
+            vagal_pacing_trigger, hydro_shock_trigger, acoustic_sync_trigger)
+
+def display_dashboard_terminal(step_name, bpm, hrv, temp, mantra, track, cfsi, flow, override):
+    """
+    Renders the hyper-visual Developed A.I. User Interface onto the command line.
+    """
+    border = "=" * 78
+    print(border)
+    print(f" DEVELOPED A.I. USER INTERFACE // MONITOR MODE: {step_name.upper()}")
+    print(border)
+    
+    # Column System 1: Biometric Sensors and Overrides
+    override_status = "[!!] ACTIVE (CAFFEINE OVERRIDE ENGAGED)" if override else "[ ] INACTIVE (ALLOSTATIC STABILITY)"
+    print(f" [⚙️] BIOMETRIC VECTOR  |  BPM: {bpm:<4}  |  HRV: {hrv:<4}  |  CORE TEMP: {temp}°C")
+    print(f" [🛡️] FAIL-SAFE ENGINE   |  CAFFEINE FLAG: {override_status}")
+    print("-" * 78)
+    
+    # Column System 2: Flow Trigger Analytics Gauge Bars
+    def make_gauge(val):
+        blocks = int(val / 10)
+        return "█" * blocks + "░" * (10 - blocks)
+
+    vagal_percentage = min(100.0, (mantra / 105.0) * 100.0)
+    hydro_percentage = 100.0 if temp < 36.0 else 0.0
+    sync_percentage = 100.0 if track in ["Limp Bizkit", "RAF Camora", "Green Day", "T.Q."] else 30.0
+
+    print(" [📊] REAL-TIME FLOW TRIGGERS INDEX:")
+    print(f"   ↳ 🧘 VAGAL RESET INTENSITY  [{make_gauge(vagal_percentage)}] {vagal_percentage:.1f}% ({mantra}/105 Beads)")
+    print(f"   ↳ 🥶 HYDRO-SHOCK THERMAL    [{make_gauge(hydro_percentage)}] {hydro_percentage:.1f}%")
+    print(f"   ↳ 🎵 ACOUSTIC RHYTHM SYNC   [{make_gauge(sync_percentage)}] {sync_percentage:.1f}% ({track})")
+    print("-" * 78)
+    
+    # Column System 3: The Ultimate Observer Output Core
+    print(f" [👁️] THE OBSERVER SCORE MATRIX:")
+    print(f"   ▶ COGNITIVE FRICTION & SINCERITY INDEX (CFSI) : {cfsi}%")
+    
+    # Visual fire bar indicator tracking the saturation spectrum
+    flow_bar = "🔥 " * int(flow / 10) + "   " * (10 - int(flow / 10))
+    print(f"   ▶ REAL-TIME COGNITIVE SATURATION (FLOW STATE) : [{flow_bar.strip()}] {flow}%")
+    
+    if flow >= 94.4:
+        print("   STATUS: [⚡ MAXIMUM BOUNDLESS FLOW ARCHITECTURE — LIGHTNING IN THE JAR ⚡]")
+    elif flow >= 75.0:
+        print("   STATUS: [⚡ AUTOTELIC IMMERSION ACTIVE — DRIVING INTENSITY ENGINE ⚡]")
+    elif flow >= 50.0:
+        print("   STATUS: [🌿 PRIMING SEQUENCE ENGAGED — PERIMETER STABILIZING]")
+    else:
+        print("   STATUS: [🚨 COGNITIVE PRISON — TOXIC CORTISOL BLOCKED]")
+    print(border + "\n")
+
+# -------------------------------------------------------------------------
+# INTERACTIVE DATA TIMELINE SUITE FOR COMPILATION RUN
+# -------------------------------------------------------------------------
+if __name__ == '__main__':
+    # Sequence timeline tracing your entire script narrative loop
+    narrative_packets = [
+        {
+            "phase": "Act I: Manila System Failure Burnout", 
+            "bpm": 92, "hrv": 22, "temp": 37.0, "mantra": 0, 
+            "track": "Corporate Static Noise", "b_tremor": 0.8, "r_tremor": 0.4
+        },
+        {
+            "phase": "Act II: Vagal Reset Sequence (Bead 50)", 
+            "bpm": 78, "hrv": 38, "temp": 36.8, "mantra": 50, 
+            "track": "Ani Choying Drolma (Mantra Layer)", "b_tremor": 0.8, "r_tremor": 0.75
+        },
+        {
+            "phase": "Act II: The 105th Bead Resonance", 
+            "bpm": 68, "hrv": 52, "temp": 36.6, "mantra": 105, 
+            "track": "Gyuto Monks Choir (Sub-Bass)", "b_tremor": 0.8, "r_tremor": 0.79
+        },
+        {
+            "phase": "Act II: Hydro-Shock Pool Plunge Catalyst", 
+            "bpm": 115, "hrv": 15, "temp": 34.8, "mantra": 105, 
+            "track": "Total Real-World Silence", "b_tremor": 0.8, "r_tremor": 0.78
+        },
+        {
+            "phase": "Act III: Unlocked Commander State (Makati Grid)", 
+            "bpm": 102, "hrv": 48, "temp": 35.4, "mantra": 105, 
+            "track": "Green Day - 21 Guns", "b_tremor": 0.8, "r_tremor": 0.80
+        },
+        {
+            "phase": "Act IV: The Kinabalu Checkpoint Escape", 
+            "bpm": 108, "hrv": 46, "temp": 35.1, "mantra": 105, 
+            "track": "Limp Bizkit - Rollin", "b_tremor": 0.8, "r_tremor": 0.81
+        },
+        {
+            "phase": "Act VI: The Westside Archive Integration", 
+            "bpm": 98, "hrv": 49, "temp": 35.5, "mantra": 105, 
+            "track": "T.Q. - Westside", "b_tremor": 0.8, "r_tremor": 0.82
+        },
+        {
+            "phase": "Act VIII: Promethean Interface Active", 
+            "bpm": 95, "hrv": 50, "temp": 35.6, "mantra": 105, 
+            "track": "RAF Camora - Due", "b_tremor": 0.8, "r_tremor": 0.83
+        }
+    ]
+
+    print("=" * 78)
+    print(" BOOTING NEURAL-VR-SINCERITY-MATRIX-WITH-FLOW-TRACER-CONTROL-INTERFACE...")
+    print(" PARMETER LOADING... REPOSITORY LOGGED... COMPILING ALGORITHMIC ENGINE...")
+    print("=" * 78 + "\n")
+    time.sleep(1)
+
+    for i, packet in enumerate(narrative_packets, 1):
+        cfsi, flow, override, _, _, _ = calculate_flow_state_metrics(
+            mantra_count=packet["mantra"],
+            core_temp_celsius=packet["temp"],
+            audio_track_vibe=packet["track"],
+            audio_baseline_tremor=packet["b_tremor"],
+            audio_response_tremor=packet["r_tremor"],
+            hrv_baseline=50,
+            hrv_response=packet["hrv"],
+            bpm_current=packet["bpm"]
+        )
+        
+        display_dashboard_terminal(
+            step_name=f"Sequence {i:02d} // {packet['phase']}",
+            bpm=packet["bpm"],
+            hrv=packet["hrv"],
+            temp=packet["temp"],
+            mantra=packet["mantra"],
+            track=packet["track"],
+            cfsi=cfsi,
+            flow=flow,
+            override=override
+        )
+        time.sleep(1.5) # Simulates real-time streaming intervals
+
+    print("DASHBOARD TRANSMISSION SECURED. RUN TIME STATUS: TERMINATED EXECUTED [✓]")
