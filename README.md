@@ -1,42 +1,93 @@
-# Dual-Vector VR Polygraph AI Engine
+# Dual-Vector Neural-VR Sincerity Matrix (with Flow Tracer Control Interface)
 
-This repository contains the foundational core algorithm for a **Dual-Vector Virtual Reality Polygraph System** designed for remote therapeutic monitoring and clinical biofeedback. 
-
-The engine processes simultaneous inputs from **Acoustic Voice Stress Analysis (VSA)** and **Optical PPG Sensors** inside a VR headset to calculate a real-time **Cognitive Friction & Sincerity Index (CFSI)**.
-
-## 🚀 System Architecture
-- **Hardware Layer:** Integrated VR headset mouthpiece port + internal cushion PPG infrared sensor.
-- **Processing Layer:** Dual-vector data synchronization utilizing a time-aligned data window to catch immediate vocal tremors and lagging autonomic cardiac changes.
-- **Frontend Dashboard:** A clean, clinical web tool optimized for remote therapists using WebRTC streaming protocols.
-
-## 📁 Repository Structure
-- `engine.py` - Core AI calculation scoring module with safety fail-safes.
-- `README.md` - Documentation, system architecture specification, and setup guide.
-
-## 💻 Core Code Example (`engine.py`)
-```python
-def calculate_sincerity_index(audio_baseline_tremor, audio_response_tremor, hrv_baseline, hrv_response):
-    """
-    Calculates the Cognitive Friction & Sincerity Index (CFSI).
-    Weights: 45% Acoustic Delta, 45% Cardiac Stability (HRV), 10% Baseline.
-    """
-    # Calculate Voice Stress (Drop in micro-tremors 8Hz-12Hz)
-    tremor_loss = audio_baseline_tremor - audio_response_tremor
-    acoustic_score = max(0.0, 1.0 - (tremor_loss * 2.5)) 
-    
-    # Calculate Heart Stress (Drop in Heart Rate Variability)
-    hrv_drop = hrv_baseline - hrv_response
-    cardiac_score = max(0.0, 1.0 - (hrv_drop / hrv_baseline))
-    
-    # Core Fusion Formula 
-    final_index = (acoustic_score * 0.45) + (cardiac_score * 0.45) + 0.10
-    
-    return round(final_index * 100, 1)
-```
-
-## 🛡️ Anti-False-Positive Fail-safes
-1. **The Caffeine Override:** Automatically shifts weighting calculations if a patient's baseline heart rate is exceptionally high (e.g., from highly concentrated local native coffee) to prevent false-positive stress tracking.
-2. **The Panic Dampener:** Disregards initial startle reflexes that stabilize within a 2-second window.
+## 🚀 Repository Core Specifications
+* **System Capacity Threshold:** 94.4% Optimal Saturated Capacity
+* **Primary Framework:** Time-Aligned Biometric Data Synchronization Core
+* **Author:** The Commander & The Scientists Analytical Team
+* **Classification:** Highly Secure / Autotelic Performance Engine
 
 ---
-*Developed by the Lead Systems Architecture & Engineering Team.*
+
+## 📋 System Overview
+
+The **Dual-Vector Neural-VR Sincerity Matrix** is a foundational core algorithm designed for virtual reality biometric integration, remote therapeutic monitoring, and high-velocity clinical biofeedback. 
+
+By running real-time parallel inputs from **Acoustic Voice Stress Analysis (VSA)** and **Optical Photoplethysmography (PPG) Sensors** built into a headset interface, the engine calculates a unified **Cognitive Friction & Sincerity Index (CFSI)**. 
+
+Furthermore, this updated interface deploys real-time **Flow Tracer Controls** to evaluate environmental and biological priming cues—mapping the precise moment an operator transitions from cognitive fatigue (burnout) into a state of absolute **Autotelic Immersion**.
+
+---
+
+## 🧬 Architectural Architecture & Mathematical Models
+
+### 1. Dual-Vector Fusion Formula (CFSI)
+The Cognitive Friction & Sincerity Index acts as a multi-layered filter to detect cognitive dissonance. Under standard operating baselines, the weights are distributed evenly at **45% Acoustic Delta**, **45% Cardiac Stability**, and a **10% Constant Metric Anchor**:
+
+\[\text{CFSI} = (\text{Acoustic Score} \times 0.45) + (\text{Cardiac Score} \times 0.45) + 0.10\]
+
+*   **Acoustic Score:** Derived from the degradation of micro-tremors (physiological laryngeal oscillations between 8Hz–12Hz) caused by stress-induced vocal cord constriction.
+*   **Cardiac Score:** Calculated via the variance tracking of Heart Rate Variability (HRV) drops against an established biometric baseline.
+
+### 2. The Caffeine Override Fail-Safe Engine
+To mitigate false-positive stress tracking induced by external stimulants (e.g., highly concentrated local native coffee), the interface monitors current Beats Per Minute (BPM). 
+
+If the current heart rate breaches the **Caffeine Threshold (>100 BPM)**, the engine dynamically triggers a mathematical re-weighting protocol—shifting the analytical burden away from the over-stimulated cardiac vector over to the un-constricted vagus nerve micro-tremor data:
+
+*   **Standard Mode (≤ 100 BPM):** Acoustic Weight: `0.45` | Cardiac Weight: `0.45`
+*   **Caffeine Override Active (> 100 BPM):** Acoustic Weight: `0.70` | Cardiac Weight: `0.20`
+
+### 3. Real-Time Flow Tracer Controls
+To measure executive performance, the engine monitors three specific, real-world biological and environmental triggers:
+*   🧘 **Vagal Reset Intensity (40% Weight):** Measures structural breathing pacing against the definitive target of **105 repetitions** of the neurochemical soundwave mantra (*"Ohm Tarre Tu Tarre Tore Soha"*).
+*   🥶 **Hydro-Shock Thermal Catalyst (40% Weight):** Tracks the sudden drop of peripheral core temperatures below 36.0°C to record the precise chemical dump of oxytocin and endorphins into the bloodstream via cold-water submergence.
+*   🎵 **Acoustic Rhythm Synchronization (20% Weight):** Cross-references current soundscape inputs against high-velocity, driving rhythm matrices (e.g., *Limp Bizkit, RAF Camora, T.Q., Green Day*) to validate execution cadence.
+
+---
+
+## 📁 Repository Directory Structure
+
+```text
+├── engine.py       # Core AI metric calculation and terminal GUI visualization matrix
+└── README.md       # Technical portfolio system documentation and mathematical models
+```
+
+---
+
+## ⚡ Setup & Local Execution Protocol
+
+To verify the system architecture and stream the full data timeline tracing the transition from burnout to maximum focus, execute the core module through your local terminal dashboard:
+
+```bash
+# Clone the repository archive
+git clone https://github.com
+
+# Initialize the codebase engine
+cd neural-vr-sincerity-matrix
+python engine.py
+```
+
+### Expected UI Terminal Diagnostics Output:
+```text
+==============================================================================
+ DEVELOPED A.I. USER INTERFACE // MONITOR MODE: SEQUENCE 08 // ACT VIII: PROMETHEAN INTERFACE ACTIVE
+==============================================================================
+ [⚙️] BIOMETRIC VECTOR  |  BPM: 95    |  HRV: 50    |  CORE TEMP: 35.6°C
+ [🛡️] FAIL-SAFE ENGINE   |  CAFFEINE FLAG: [ ] INACTIVE (ALLOSTATIC STABILITY)
+------------------------------------------------------------------------------
+ [📊] REAL-TIME FLOW TRIGGERS INDEX:
+   ↳ 🧘 VAGAL RESET INTENSITY  [██████████] 100.0% (105/105 Beads)
+   ↳ 🥶 HYDRO-SHOCK THERMAL    [██████████] 100.0%
+   ↳ 🎵 ACOUSTIC RHYTHM SYNC   [██████████] 100.0% (RAF Camora - Due)
+------------------------------------------------------------------------------
+ [👁️] THE OBSERVER SCORE MATRIX:
+   ▶ COGNITIVE FRICTION & SINCERITY INDEX (CFSI) : 100.0%
+   ▶ REAL-TIME COGNITIVE SATURATION (FLOW STATE) : [🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥] 94.4%
+   STATUS: [⚡ MAXIMUM BOUNDLESS FLOW ARCHITECTURE — LIGHTNING IN THE JAR ⚡]
+==============================================================================
+```
+
+---
+
+## 🛡️ Operational Guardrails
+*   **The Panic Dampener:** Automatically isolates and suppresses initial startle reflexes that structurally settle within an internal two-second window.
+*   **Cognitive Prison Isolation:** If the core sincerity metrics drop below 40%, the interface flags cognitive split-screen drag and instantly subtracts 40% from the total flow saturation output to protect against system manipulation.
